@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercise2</title>
+  </head>
+  <body>
+    <script>
+      let animals = [
+        { id: "a1", en: "cat", cn: "貓", num: 30 },
+        { id: "a2", en: "dog", cn: "狗", num: 10 },
+        { id: "a3", en: "rabbit", cn: "兔", num: 5 },
+        { id: "a4", en: "bear", cn: "熊", num: 15 },
+        { id: "a5", en: "mouse", cn: "鼠", num: 20 },
+      ];
+
+      let newAnimalsArr = animals.map((animal) => {
+        let newAnimal = { ...animal, size: "small" };
+        return newAnimal;
+      });
+      console.log(newAnimalsArr);
+
+      let bearObj = newAnimalsArr.find((newAnimalArr) => {
+        return newAnimalArr.cn === "熊";
+      });
+
+      bearObj.size = "large";
+      console.log(newAnimalsArr);
+
+      let largeBear = newAnimalsArr.map((animal, i) => {
+        if (animal.cn === "熊") {
+          return { ...animal, size: "large" };
+        } else {
+          return { ...animal };
+        }
+      });
+      console.log(largeBear);
+
+      let lessThanIndex2 = newAnimalsArr.filter((animal, i) => {
+        return i <= 2;
+      });
+      console.log(lessThanIndex2);
+
+      let moreThanIndex2 = newAnimalsArr.filter((animal, i) => {
+        return i > 2;
+      });
+      console.log(moreThanIndex2);
+
+      let pig = { id: "a35", en: "pig", cn: "豬", num: 3, size: "medium" };
+      let newAnimalArray = [...lessThanIndex2, pig, ...moreThanIndex2];
+      console.log(newAnimalArray);
+
+      let resultAnimal = newAnimalArray.find((animal) => animal.num < 10).cn;
+
+      console.log(resultAnimal);
+
+      let piggy = {
+        id: "a35",
+        en: "pig",
+        cn: "豬",
+        num: 30,
+        size: "medium",
+      };
+
+      let result = [];
+      newAnimalsArr.forEach((animal, index) => {
+        result = [...result, animal];
+        if (index == 2) {
+          result = [...result, piggy];
+        }
+      });
+
+      console.log(result);
+
+      //   console.log(result);
+    </script>
+  </body>
+</html>

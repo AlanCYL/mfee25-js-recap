@@ -33,8 +33,8 @@
       })("pink");
 
       let result = (fibonacciGenerator=(n)=>{
-        if(n==0){
-            return "沒給東西";
+        if(n <= 0){
+            return "0或負數";
         }else  if(n==1){
             return [0];
         }else{
